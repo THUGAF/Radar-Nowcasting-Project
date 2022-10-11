@@ -1,0 +1,78 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+L1S_eval = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_1L_S/loss/test_eval_each.txt')
+L1S_ssim = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_1L_S/loss/test_ssim_each.txt')
+L1S_mse = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_1L_S/loss/test_mse_each.txt')
+L3S_eval = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_3L_S/loss/test_eval_each.txt')
+L3S_ssim = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_3L_S/loss/test_ssim_each.txt')
+L3S_mse = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_3L_S/loss/test_mse_each.txt')
+L1L_eval = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_1L_L/loss/test_eval_each.txt')
+L1L_ssim = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_1L_L/loss/test_ssim_each.txt')
+L1L_mse = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_1L_L/loss/test_mse_each.txt')
+L3L_eval = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_3L_L/loss/test_eval_each.txt')
+L3L_ssim = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_3L_L/loss/test_ssim_each.txt')
+L3L_mse = np.loadtxt('C:/Users/GAF/Desktop/all_results/results_3L_L/loss/test_mse_each.txt')
+
+x = np.arange(6, 66, 6)
+plt.rcParams['font.sans-serif'] = 'Times New Roman'
+fig = plt.figure(figsize=(12, 9), dpi=100)
+
+ax1 = plt.subplot(3, 2, 1)
+ax1.set_xlabel('min')
+ax1.set_ylabel('POD')
+ax1.xaxis.set_major_locator(plt.MultipleLocator(6))
+plt.plot(x, L1S_eval[0], '-gx', lw=0.8)
+plt.plot(x, L3S_eval[0], '-go', lw=0.8)
+plt.plot(x, L1L_eval[0], '-rx', lw=0.8)
+plt.plot(x, L3L_eval[0], '-ro', lw=0.8)
+
+ax2 = plt.subplot(3, 2, 2)
+ax2.set_xlabel('min')
+ax2.set_ylabel('FAR')
+ax2.xaxis.set_major_locator(plt.MultipleLocator(6))
+plt.plot(x, L1S_eval[1], '-gx', lw=0.8)
+plt.plot(x, L3S_eval[1], '-go', lw=0.8)
+plt.plot(x, L1L_eval[1], '-rx', lw=0.8)
+plt.plot(x, L3L_eval[1], '-ro', lw=0.8)
+
+ax3 = plt.subplot(3, 2, 3)
+ax3.set_xlabel('min')
+ax3.set_ylabel('CSI')
+ax3.xaxis.set_major_locator(plt.MultipleLocator(6))
+plt.plot(x, L1S_eval[2], '-gx', lw=0.8)
+plt.plot(x, L3S_eval[2], '-go', lw=0.8)
+plt.plot(x, L1L_eval[2], '-rx', lw=0.8)
+plt.plot(x, L3L_eval[2], '-ro', lw=0.8)
+
+ax4 = plt.subplot(3, 2, 4)
+ax4.set_xlabel('min')
+ax4.set_ylabel('HSS')
+ax4.xaxis.set_major_locator(plt.MultipleLocator(6))
+plt.plot(x, L1S_eval[3], '-gx', lw=0.8)
+plt.plot(x, L3S_eval[3], '-go', lw=0.8)
+plt.plot(x, L1L_eval[3], '-rx', lw=0.8)
+plt.plot(x, L3L_eval[3], '-ro', lw=0.8)
+
+ax5 = plt.subplot(3, 2, 5)
+ax5.set_xlabel('min')
+ax5.set_ylabel('SSIM')
+ax5.xaxis.set_major_locator(plt.MultipleLocator(6))
+plt.plot(x, L1S_ssim, '-gx', lw=0.8)
+plt.plot(x, L3S_ssim, '-go', lw=0.8)
+plt.plot(x, L1L_ssim, '-rx', lw=0.8)
+plt.plot(x, L3L_ssim, '-ro', lw=0.8)
+
+ax6 = plt.subplot(3, 2, 6)
+ax6.set_xlabel('min')
+ax6.set_ylabel('MSE')
+ax6.xaxis.set_major_locator(plt.MultipleLocator(6))
+plt.plot(x, L1S_mse, '-gx', lw=0.8)
+plt.plot(x, L3S_mse, '-go', lw=0.8)
+plt.plot(x, L1L_mse, '-rx', lw=0.8)
+plt.plot(x, L3L_mse, '-ro', lw=0.8)
+
+ax6.legend(['L1 Small', 'L3 Small', 'L1 Large', 'L3 Large'], loc='lower right')
+
+plt.show()
